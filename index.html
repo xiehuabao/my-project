@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>贪吃蛇游戏</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-header">
+            <h1>贪吃蛇游戏</h1>
+            <div class="score-container">
+                <span>分数: </span>
+                <span id="score">0</span>
+            </div>
+        </div>
+        
+        <canvas id="game-board" width="400" height="400"></canvas>
+        
+        <div class="controls">
+            <button id="start-btn">开始游戏</button>
+            <button id="restart-btn">重新开始</button>
+            <button id="help-btn">游戏帮助</button>
+        </div>
+        
+        <div id="help-modal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h2>游戏帮助</h2>
+                <h3>操作方法</h3>
+                <p>使用键盘的方向键（↑、↓、←、→）控制蛇的移动方向。</p>
+                
+                <h3>游戏规则</h3>
+                <ul>
+                    <li>蛇不能撞墙，否则游戏结束</li>
+                    <li>蛇不能咬到自己的身体，否则游戏结束</li>
+                    <li>蛇不能撞到障碍物，否则游戏结束</li>
+                    <li>红色食物：基础分值（初始为10分）</li>
+                    <li>金色食物：双倍分值（特殊食物）</li>
+                    <li>每得到100分，游戏会提升一个级别</li>
+                    <li>级别提升后，游戏速度会增加，食物分值也会增加</li>
+                    <li>从第2级开始，游戏中会出现障碍物</li>
+                </ul>
+                <button id="close-modal-btn" class="modal-close-button">关闭</button>
+            </div>
+        </div>
+
+        <div id="game-over" class="hidden">
+            <h2>游戏结束!</h2>
+            <p>你的最终分数: <span id="final-score">0</span></p>
+            <button id="play-again-btn">再玩一次</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
